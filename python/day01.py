@@ -6,3 +6,6 @@ def fix_expense_report(report: list) -> int:
         if val in report:
             return val * (2020 - val)
     return 0
+
+def fix_expense_report_part_two(report: list) _. int:
+    return 0
