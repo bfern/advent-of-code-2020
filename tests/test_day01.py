@@ -1,4 +1,4 @@
-from python.day01 import fix_expense_report
+from python.day01 import fix_expense_report, fix_expense_report_part_two
 
 
 def test_fix_expense_report():
