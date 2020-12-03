@@ -28,4 +28,17 @@ def get_word(password: str) -> str:
 
 
 def count_valid_passwords_part_two(passwords: list) -> int:
-    return 0
+    num_valid_passwords = 0
+    for password in passwords:
+        lower_bound = get_lower_bound(password)
+        upper_bound = get_upper_bound(password)
+        letter = get_letter(password)
+        word = get_word(password)
+        num_matches = 0
+        if word[lower_bound - 1] == letter:
+            num_matches += 1
+        if word[upper_bound - 1] == letter:
+            num_matches += 1
+        if num_matches == 1:
+            num_valid_passwords += 1
+    return num_valid_passwords
