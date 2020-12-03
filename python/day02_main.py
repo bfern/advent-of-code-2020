@@ -1,4 +1,4 @@
-from python.day02 import count_valid_passwords
+from python.day02 import count_valid_passwords, count_valid_passwords_part_two
 
 with open("input/day02.txt") as f:
     input = f.readlines()
