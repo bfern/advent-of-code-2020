@@ -25,3 +25,7 @@ def get_letter(password: str) -> str:
 
 def get_word(password: str) -> str:
     return password.split(":")[1][1:]
+
+
+def count_valid_passwords_part_two(passwords: list) -> int:
+    return 0
