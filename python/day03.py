@@ -23,3 +23,7 @@ def is_valid_location(current_loc: list, forest: list) -> bool:
 def is_tree(current_loc: list, forest: list) -> bool:
     row = list(forest[current_loc[1]])
     return row[current_loc[0] % len(row)] == "#"
+
+
+def count_number_of_trees_encountered_part_two(forest: list) -> int:
+    return 0
