@@ -26,4 +26,8 @@ def is_tree(current_loc: list, forest: list) -> bool:
 
 
 def count_number_of_trees_encountered_part_two(forest: list) -> int:
-    return 0
+    slopes = [[1, 1], [3, 1], [5, 1], [7, 1], [1,2]]
+    total_trees_encountered = 1
+    for slope in slopes:
+        total_trees_encountered *= count_number_of_trees_encountered(forest, slope[0], slope[1])
+    return total_trees_encountered
