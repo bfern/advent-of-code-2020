@@ -1,6 +1,3 @@
-import ast
-
-
 def count_valid_passports(file: str) -> int:
     passports = convert_file_to_passports(file)
     num_valid_passports = 0
