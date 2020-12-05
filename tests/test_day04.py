@@ -10,4 +10,3 @@ def test_count_valid_passports():
 def test_count_valid_passports_part_two():
     test_input_file = os.path.join("test_input", "day04_part_two.txt")
     assert count_valid_passports_part_two(test_input_file) == 4
-    
