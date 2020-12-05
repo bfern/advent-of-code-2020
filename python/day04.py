@@ -14,7 +14,6 @@ def convert_file_to_passports(file: str) -> list:
     input = input.split("\n\n")
     passports = []
     for val in input:
-        print(val.replace("\n", " ").split(" "))
         passport = {}
         for v in val.replace("\n", " ").split(" "):
             passport[v.split(":")[0]] = v.split(":")[1]
