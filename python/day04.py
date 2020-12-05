@@ -26,3 +26,7 @@ def passport_has_required_fields(passport: dict, required_fields: list) -> bool:
         if field not in passport.keys():
             return False
     return True
+
+
+def count_valid_passports_part_two(file: str) -> int:
+    return 0
