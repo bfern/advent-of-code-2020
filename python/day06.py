@@ -4,10 +4,10 @@ def sum_of_counts(file: str) -> int:
     groups = input.split("\n\n")
     sum_of_counts = 0
     for group in groups:
-        count = get_count(group.replace("\n", ""))
+        count = get_count(group)
         sum_of_counts += count
     return sum_of_counts
 
 
 def get_count(answers: str) -> int:
-    return len(set(answers))
+    return len(set(answers.replace("\n", "")))
