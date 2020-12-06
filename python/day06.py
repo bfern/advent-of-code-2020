@@ -11,3 +11,17 @@ def sum_of_counts(file: str) -> int:
 
 def get_count(answers: str) -> int:
     return len(set(answers.replace("\n", "")))
+
+
+def sum_of_counts_part_two(file: str) -> int:
+    return 0
+
+
+def get_count_part_two(answers: str) -> int:
+    answered_by_all = None
+    for answer in answers.split("\n"):
+        if answered_by_all is None:
+            answered_by_all = answer
+        else:
+            answered_by_all = "".join(set(answered_by_all).intersection(answer))
+    return len(answered_by_all)
