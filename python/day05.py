@@ -13,6 +13,7 @@ def get_row_from_boarding_pass(boarding_pass: str) -> int:
             boarding_pass_as_binary += "1"
     return int(boarding_pass_as_binary, 2)
 
+
 def get_column_from_boarding_pass(boarding_pass: str) -> int:
     boarding_pass_as_binary = ""
     for char in boarding_pass[7:]:
