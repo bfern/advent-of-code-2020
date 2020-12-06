@@ -14,7 +14,14 @@ def get_count(answers: str) -> int:
 
 
 def sum_of_counts_part_two(file: str) -> int:
-    return 0
+    with open(file) as f:
+        input = f.read()
+    groups = input.split("\n\n")
+    sum_of_counts = 0
+    for group in groups:
+        count = get_count_part_two(group)
+        sum_of_counts += count
+    return sum_of_counts
 
 
 def get_count_part_two(answers: str) -> int:
