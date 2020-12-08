@@ -36,5 +36,32 @@ def get_bag_contents(rule: str) -> list:
     return bag_contents
 
 
-def get_number_of_bags_shiny_gold_bag_contains(rule: str) -> list:
-    return 0
+def get_contents_of_bag(bag: str, rules: list) -> list:
+    rule = get_rule_for_bag(bag, rules)
+    return get_bag_contents(rule)
+
+
+def get_rule_for_bag(bag: str, rules: list) -> str:    
+    for rule in rules:
+        if get_bag(rule) == bag:
+            return rule
+    return None
+
+
+def get_number_of_bags_shiny_gold_bag_contains(file: str) -> list:
+    with open(file) as f:
+        rules = f.read().split("\n")
+    return get_number_of_bags_inside("shiny gold", rules) - 1
+
+
+def get_number_of_bags_inside(bag, rules) -> int:
+    contents_of_bag = get_contents_of_bag(bag, rules)
+    number_of_bags_inside = 1
+    for this_bag in contents_of_bag:
+        number_of_bags_inside += get_size_of_bag(bag, this_bag, rules) * get_number_of_bags_inside(this_bag, rules)
+    return number_of_bags_inside
+
+
+def get_size_of_bag(bag: str, this_bag: str, rules: list) -> int:
+    rule = get_rule_for_bag(bag, rules)
+    return int(rule.split(this_bag)[0].split(" ")[-2])
