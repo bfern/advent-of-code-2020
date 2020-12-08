@@ -34,3 +34,7 @@ def get_bag_contents(rule: str) -> list:
         b_manipulated = " ".join(b[2:].split(" ")[:2])
         bag_contents.append(b_manipulated)
     return bag_contents
+
+
+def get_number_of_bags_shiny_gold_bag_contains(rule: str) -> list:
+    return 0
