@@ -1,13 +1,24 @@
 def get_num_bag_colours_containing_shiny_gold_bag(file: str) -> int:
     with open(file) as f:
         rules = f.read().split("\n")
-    possible_bag_colours = []
+    prev_possible_bag_colours = []
+    possible_bag_colours = get_bag_colours_containing_specific_colour(rules, "shiny gold")
+    while prev_possible_bag_colours != possible_bag_colours:
+        prev_possible_bag_colours = possible_bag_colours
+        for colour in possible_bag_colours:
+            bag_colours = get_bag_colours_containing_specific_colour(rules, colour)
+            possible_bag_colours = list(set(possible_bag_colours + bag_colours))
+    return len(possible_bag_colours)
+
+
+def get_bag_colours_containing_specific_colour(rules: list, colour: str) -> list:
+    bag_colours = []
     for rule in rules:
         bag = get_bag(rule)
         bag_contents = get_bag_contents(rule)
-        if "shiny gold" in bag_contents:
-            possible_bag_colours.append(bag)
-    return len(possible_bag_colours)
+        if colour in bag_contents:
+            bag_colours.append(bag)
+    return bag_colours
 
 
 def get_bag(rule: str) -> str:
