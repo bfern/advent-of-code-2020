@@ -19,7 +19,6 @@ def get_fewest_steps(file:str, random_seed:int) -> int:
         prev_index = list(random.choice(list(current_possible_moves)))
         route.append(prev_index)
         route = reduce_route(route)
-        print(len(route))
         if len(route) >= 1000:
             print(route)
             break
