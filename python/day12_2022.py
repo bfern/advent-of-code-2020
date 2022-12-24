@@ -3,7 +3,8 @@ import random
 from collections import Counter
 
 
-def get_fewest_steps(file:str) -> int:
+def get_fewest_steps(file:str, random_seed:int) -> int:
+    random.seed(random_seed)
     with open(file) as f:
         l = f.read().split("\n")
         board = []

@@ -4,7 +4,17 @@ import os
 
 def test_get_fewest_steps():
     test_input_file = os.path.join("test_input", "day12_2022.txt")
-    assert get_fewest_steps(test_input_file) == 31
+    assert get_fewest_steps(test_input_file, 1) == 31
+    assert get_fewest_steps(test_input_file, 2) == 31
+    assert get_fewest_steps(test_input_file, 3) == 31
+    assert get_fewest_steps(test_input_file, 4) == 31
+    assert get_fewest_steps(test_input_file, 5) == 31
+    assert get_fewest_steps(test_input_file, 6) == 31
+    assert get_fewest_steps(test_input_file, 7) == 31
+    assert get_fewest_steps(test_input_file, 8) == 31
+    assert get_fewest_steps(test_input_file, 9) == 31
+    assert get_fewest_steps(test_input_file, 10) == 31
+
 
 
 def test_get_altitude():
