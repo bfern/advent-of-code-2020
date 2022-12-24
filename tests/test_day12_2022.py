@@ -36,8 +36,8 @@ def test_get_current_possible_moves():
         for val in l:
             board.append(list(val))
     assert get_current_possible_moves([0,0], board) == set(tuple(x) for x in [[0,1], [1,0]])
-    assert get_current_possible_moves([1,1], board) == set(tuple(x) for x in [[1,2], [2,1]])
-    assert get_current_possible_moves([3,4], board) == set(tuple(x) for x in [[3,5]])
+    assert get_current_possible_moves([1,1], board) == set(tuple(x) for x in [[0,1], [1,0], [1,2], [2,1]])
+    assert get_current_possible_moves([3,4], board) == set(tuple(x) for x in [[3,5], [3,3], [4,4]])
 
 
 def test_get_start_index():
@@ -59,5 +59,5 @@ def test_get_end_index():
 
 
 def test_reduce_route():
-    route = [[0,0], [0,1], [1,1], [1,0], [0,0], [0,1]]
-    assert reduce_route(route) == [[0,0], [0,1]]
+    assert reduce_route([[0,0], [0,1], [1,1], [1,0], [0,0], [0,1]]) == [[0,0], [0,1]]
+    assert reduce_route([[0,0], [1,0], [0,0], [0,1]]) == [[0,0], [0,1]]
