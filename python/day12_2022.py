@@ -29,13 +29,13 @@ def get_fewest_steps(file:str, random_seed:int) -> int:
 def get_current_possible_moves(current_loc:list, board:list) -> list:
     current_alt = get_altitude(current_loc, board)
     current_possible_moves = []
-    if get_altitude([current_loc[0]-1, current_loc[1]], board) in [current_alt, current_alt+1]:
+    if get_altitude([current_loc[0]-1, current_loc[1]], board) <= current_alt+1 and  get_altitude([current_loc[0]-1, current_loc[1]], board) > 0:
         current_possible_moves.append([current_loc[0]-1, current_loc[1]])
-    if get_altitude([current_loc[0]+1, current_loc[1]], board) in [current_alt, current_alt+1]:
+    if get_altitude([current_loc[0]+1, current_loc[1]], board) <= current_alt+1 and get_altitude([current_loc[0]+1, current_loc[1]], board) > 0:
         current_possible_moves.append([current_loc[0]+1, current_loc[1]])
-    if get_altitude([current_loc[0], current_loc[1]-1], board) in [current_alt, current_alt+1]:
+    if get_altitude([current_loc[0], current_loc[1]-1], board) <= current_alt+1 and get_altitude([current_loc[0], current_loc[1]-1], board) > 0:
         current_possible_moves.append([current_loc[0], current_loc[1]-1])
-    if get_altitude([current_loc[0], current_loc[1]+1], board) in [current_alt, current_alt+1]:
+    if get_altitude([current_loc[0], current_loc[1]+1], board) <= current_alt+1 and get_altitude([current_loc[0], current_loc[1]+1], board) > 0:
         current_possible_moves.append([current_loc[0], current_loc[1]+1])
     return set(tuple(x) for x in current_possible_moves)
 
