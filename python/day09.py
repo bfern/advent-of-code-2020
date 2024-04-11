@@ -16,3 +16,12 @@ def number_is_invalid(number: int, prev_numbers: list) -> bool:
             if prev_numbers[i] + prev_numbers[j] == number:
                 return False
     return True
+
+def find_sum_smallest_and_largest_contiguous_range(file: str, preamble_length: int=25) -> int:
+    numbers = read_file_as_list(file)
+    first_invalid_number = find_first_invalid_number(file, preamble_length)
+    for i in range(len(numbers)):
+        for j in range(i, len(numbers)):
+            if sum(numbers[i:(j+1)]) == first_invalid_number:
+                return min(numbers[i:(j+1)]) + max(numbers[i:(j+1)])
+    return -1
